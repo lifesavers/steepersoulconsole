@@ -1,0 +1,34 @@
+/********/
+/*!
+@file ICE.cpp
+@author Adam David Clayman (adam@lifesavers.io)
+
+In Case Of Emergency (ICE) Folder
+This version is modelled after a college or university campus.
+*/
+/********/
+
+
+// CONSENT FIRST RESPONDER TEAM TREE
+
+// SC JOURNAL ENTRY PROTOCOL AND WEBSITE
+
+// CAMPUS POLICE (CODE REDS)
+
+// CAMPUS COUNSELING (CODE BLUES)
+
+// CAMPUS HEALTH SERVICES
+
+// TITLE IX OFFICE
+
+// SPECIAL VICTIMS UNIT
+
+
+// OFFICE OF STUDENT CONDUCT ADVISORS
+
+
+// ATTORNEYS WITH SMARTCONSENT TRAINING
+
+// CLERY REPORTING STATS
+
+// SMARTCONSENT STATS (REPORTED EVENTS, REDS, BLUES, RESPONSE TIMES, ETC.)
