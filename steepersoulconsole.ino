@@ -5,6 +5,7 @@
 #include <Bridge.h>            // For communication between the Arduino and Linux chipsets
 #include <Console.h>           // Used to communicate with board wirelessly with Serial interface. Takes the place of Serial.println("x"); statements.
 #include <SoftwareSerial.h>    // Needed for SSC α007's Bluetooth Transceiver (HC-05) Serial Connection. Simulates Serial line on arbitrary set of interrupt-capable btpincodes.
+#include <SPI.h>
 /*
 Behavior Tests
 
@@ -19,18 +20,29 @@ Behavior Tests
 9. Sync PagerDuty call and basic alert log
 10. Add more behaviors, building to basic Fitbit Sleep Logs
 
+Tunnel, stroight and true. You are sitting on a critical voting right, governing private space.
+
+Bear in mind: Default IP for Dragino Architexture is http://192.168.240.1/, account handle is ___ and password on starter consoul is ____.
+
 */
 
 
 void setup() {
-  // put your setup code here, to run once:
+  // Start More Religious Cycles of Life, on Religious HH Core
+  
+  
   Serial.begin(9600);
   
-  
   // SET-UP INPUTS
-  pinMode(obutton, INPUT);
-//  pinMode(breath_alcohol_sensor, INPUT); For upcoming versions, requires user testing
-  SoftwareSerial bluetooth(16, 15);              // Pins for RX-In (16), TX-Out (15) for Steeper Souls Console. These may need to be reversed for production testing.
+  pinMode(obutton, INPUT);             // Breath alcohol [heartmonitor], ambient light [steeping|studymore], requires user testing
+  SoftwareSerial bluetooth(16, 15);    // Pins for RX-In (16), TX-Out (15) for Steeper Souls Console. These may need to be reversed for production testing.
+
+  // Sensor Optionalities for Branch Growths
+  // [heartmonitor]: breath alcohol, fingerprint sensor
+  // [steeping]: ambient light, * electronics off switch *  [* Zhongguo student strategy, suggested by Gezhi HS Student *]
+  // [writingreading]: ambient noise
+  // [speakinglistening]: 
+  // 
 
   // SET-UP OUTPUTS
   pinMode(red_led, OUTPUT);     
@@ -38,17 +50,42 @@ void setup() {
   pinMode(blue_led, OUTPUT);
   pinMode(buzzer, OUTPUT);
 
+
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.println(obutton);
+  //obutton_state = oButtonReader();
+  obutton_press_state = digitalRead(obutton);
+  Serial.println(obutton_press_state);
   
   
 }
 
 
+int oButtonReader() {
+  // put your main code here, to run repeatedly:
+  obutton_press_state = digitalRead(obutton);
+
+  if (obutton_press_state == 0 && obutton_press_state != last_obutton_press_state) {
+    obutton_press_counter++;
+    Serial.println(obutton_press_counter);
+  }
+  
+  last_obutton_press_state = obutton_press_state;
+  return obutton_press_counter;
+}
+
+
 // HELPER FUNCTIONS
+
+
+void safetyorangeRGB() {
+  analogWrite(red_led, 232);
+  analogWrite(green_led, 118);
+  analogWrite(blue_led, 0);
+}
+
 void whiteRGB() {
   analogWrite(red_led, 255);
   analogWrite(green_led, 255);

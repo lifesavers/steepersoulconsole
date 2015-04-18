@@ -9,8 +9,8 @@
 
 #include <Arduino.h>
 #include "SSC.h"
-
 // 2, 4, 9, 11, 12, 13
+
 
  	// DIGITAL PIN DEFINITIONS
 		// Open Digital Pins: 13
